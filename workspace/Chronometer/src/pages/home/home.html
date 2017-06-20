@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      CHRONOMETER
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<p style="text-align: center; font-size: -webkit-xxx-large;">
+  {{ seconds | time_format }}
+</p>
+
+<div>
+  <button ion-button  color="secondary" full large (click)="toggle()">
+    <ion-icon name="{{ start_pause_icon }}"></ion-icon>
+    {{ start_pause_label }}
+  </button>
+</div>
+
+<div>
+<button ion-button color="danger" full (click)="stop()">
+  <ion-icon name="square"></ion-icon>
+  Stop
+</button>
+</div>
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      CHRONOMETER
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<p style="text-align: center; font-size: -webkit-xxx-large;">
+  {{ seconds | time_format }}
+</p>
+
+<ion-row>
+  <ion-col>
+    <button ion-button  color="secondary" full large (click)="toggle()">
+      <ion-icon name="{{ start_pause_icon }}"></ion-icon>
+      {{ start_pause_label }}
+    </button>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col>
+    <button ion-button color="danger" (click)="stop()" style="width: 100%;">
+      <ion-icon name="square"></ion-icon>
+      Stop
+    </button>
+  </ion-col>
+  <ion-col>
+    <button ion-button (click)="step()" style="width: 100%;">
+      <ion-icon name="flag"></ion-icon>
+      Step
+    </button>
+  </ion-col>
+  <ion-col>
+    <button ion-button (click)="clear()" style="width: 100%;">
+      <ion-icon name="trash"></ion-icon>
+      Clear
+    </button>
+  </ion-col>
+</ion-row>
+<ion-list>
+  <ion-item  *ngFor="let step of step_list; let i=index">
+    <h1>{{ i }} : {{ step  | time_format }}</h1>
+  </ion-item>
+</ion-list>
+
+</ion-content>

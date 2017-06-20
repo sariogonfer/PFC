@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lista</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let reminder of remindersProvider.reminders.all()">
+      <ion-item>
+        <h1> {{ reminder.name }} </h1>
+        <p> {{ reminder.description }} </p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="onClickMap(reminder)">
+          <ion-icon name="map"></ion-icon>
+          Mapa
+        </button>
+        <button ion-button color="danger" (click)="onClickRemove(reminder)">
+          <ion-icon name="trash"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

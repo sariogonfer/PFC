@@ -1,0 +1,9 @@
+<div class="canvas sky" [@skyState]="state" (pan)="panEvent($event)" >
+  <div class="celestial sun" [@flyInOut] *ngIf="state === 'day'" (click)="toogleState()" ></div>
+  <div class="celestial moon" [@flyInOut] *ngIf="state === 'night'" (click)="toogleState()" ></div>
+  <div [style.transform]="currentDeltaX / 3 | transform_sanitizer" class="cloud left"></div>
+  <div [style.transform]="currentDeltaX / 3 | transform_sanitizer" class="cloud rigth"></div>
+  <div #landscape [style.transform]="currentDeltaX | transform_sanitizer" class="landscape" >
+    <div class="bird" (@birdState.start)="playAudio()" [@birdState]="state"></div>
+  </div>
+</div>

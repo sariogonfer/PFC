@@ -1,0 +1,74 @@
+page-home {
+  .canvas.sky{
+    height: 100%;
+    width: 100%;
+    background-color: #00BFFF;
+  }
+  .celestial{
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    left: 40%;
+    top: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &.sun{
+      background-image: url(../assets/landscape/sun.png);
+    }
+    &.moon{
+      background-image: url(../assets/landscape/moon.png);
+    }
+  }
+  .cloud {
+    position: fixed;
+    height: 60px;
+    width: 150px;
+    background-image: url(../assets/landscape/cloud.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    &.left {
+      top: 8%;
+      left: 25%;
+    }
+    &.rigth {
+      top: 12%;
+      left: 65%;
+    }
+  }
+  .landscape {
+    position: fixed;
+    height: 100vh;
+    width: calc(100vh*1024/373); // Tamanho de la imagen es 1024*373, asi que calculamos la relacion alto entre ancho
+    background-image: url(../assets/landscape/landscape.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+
+    .bird {
+        position: fixed;
+        height: 100px;
+        width: 100px;
+        left: 30%;
+        top: 60%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        animation-name: spin;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: easeInQuint;
+    }
+  }
+}
+
+
+@keyframes spin {
+    0%, 45%   {transform: rotateY(0deg);}
+    50%, 95%  {transform: rotateY(180deg);}
+}
+
+@keyframes jump {
+    0%, 45%, 55%   {top: 60%}
+    50%  {top: 50%}
+}

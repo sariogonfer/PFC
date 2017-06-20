@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      POMODORO
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<p style="text-align: center; font-size: -webkit-xxx-large;">
+  {{ seconds | time_format }}
+</p>
+
+<ion-row>
+  <ion-col>
+    <button ion-button color="secondary" full large (click)="toggle()">
+      <ion-icon name="{{ start_pause_icon }}"></ion-icon>
+      {{ start_pause_label }}
+    </button>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col>
+    <button ion-button style="width: 100%;" color="danger"  large (click)="stop()">
+      <ion-icon name="square"></ion-icon>
+      Stop
+    </button>
+  </ion-col>
+  <ion-col>
+    <button ion-button style="width: 100%;" large (click)="next_state()">
+      <ion-icon name="fastforward"></ion-icon>
+      Next
+    </button>
+  </ion-col>
+</ion-row>
+
+<ion-row *ngFor="let state of STATE_LIFE_CICLE; let i=index; let last = last" >
+  <div style="width: 100%; text-align: center;">
+    <h2 [class.current-state]="i == state_idx">
+      {{ state.name }} ({{ state.duration / 60 }}m)
+      <ion-icon *ngIf="!last" name="arrow-round-forward"></ion-icon>
+    </h2>
+  </div>
+</ion-row>
+
+</ion-content>
